@@ -5,25 +5,42 @@ let playerPosition = 175;
 let fallingPosition = 0;
 let fallingSpeed = 10;
 let score = 0;
-document.addEventListener("keydown", function(event) {
-if (event.key === "ArrowLeft" && playerPosition > 0) {
-playerPosition -= 20;
-} else if (event.key === "ArrowRight" && playerPosition < 350) {
-playerPosition += 20;
+
+// Deteksi apakah perangkat Android
+function isAndroid() {
+    return /Android/i.test(navigator.userAgent);
 }
-player.style.left = playerPosition + "px";
+
+// Tampilkan tombol Android jika perangkat Android
+if (isAndroid()) {
+    document.getElementById("androidButton").style.display = "block";
+}
+
+document.getElementById("androidButton").addEventListener("click", function() {
+    alert("Tombol Android Ditekan!");
 });
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "ArrowLeft" && playerPosition > 0) {
+        playerPosition -= 20;
+    } else if (event.key === "ArrowRight" && playerPosition < 350) {
+        playerPosition += 20;
+    }
+    player.style.left = playerPosition + "px";
+});
+
 function dropBox() {
-fallingPosition += fallingSpeed;
-fallingBox.style.top = fallingPosition + "px";
-if (fallingPosition > 450) {
-if (Math.abs(playerPosition - parseInt(fallingBox.style.left)) < 40) {
-score++;
-alert("Berhasil menangkap! Skor: " + score);
+    fallingPosition += fallingSpeed;
+    fallingBox.style.top = fallingPosition + "px";
+    if (fallingPosition > 450) {
+        if (Math.abs(playerPosition - parseInt(fallingBox.style.left)) < 40) {
+            score++;
+            alert("Berhasil menangkap! Skor: " + score);
+        }
+        fallingPosition = 0;
+        fallingBox.style.left = Math.floor(Math.random() * 370) + "px";
+    }
+    requestAnimationFrame(dropBox);
 }
-fallingPosition = 0;
-fallingBox.style.left = Math.floor(Math.random() * 370) + "px";
-}
-requestAnimationFrame(dropBox);
-}
+
 dropBox();
