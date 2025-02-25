@@ -56,7 +56,7 @@ document.addEventListener("mousemove", (e) => {
 });
 
 document.addEventListener("mouseup", () => {
-    isDragging = false;
+    isDragging = true;
     stick.style.left = "0px";
     stick.style.top = "0px";
 });
