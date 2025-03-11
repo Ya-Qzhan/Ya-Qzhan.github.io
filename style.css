@@ -16,6 +16,7 @@ position: absolute;
 bottom: 10px; 
 left: 50%; 
 height: 100px; 
+width: 100px;
 background: url('misqueen.png') no-repeat center; 
 background-size: contain; 
 transform: translateX(-50%); 
