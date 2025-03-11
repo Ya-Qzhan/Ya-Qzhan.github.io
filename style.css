@@ -22,14 +22,14 @@ background-size: contain;
 transform: translateX(-50%); 
 }
 
-#falling-box {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 30px;
-    height: 30px;
-    background-color: black;
-}
+#falling-box { 
+position: absolute; 
+top: 0; 
+left: 50%; 
+width: 40px; 
+height: 40px; 
+background: url('https://png.pngtree.com/png-clipart/20230914/original/pngtree-cartoon-trash-and-toys-in-garbage-cup-vector-png-image_11084986.png') no-repeat center; 
+background-size: contain; 
 
 /* Joystick Styles */
 #joystick {
